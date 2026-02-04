@@ -541,6 +541,7 @@ print(a.index(3))
 
 
 **없으면 오류**
+
 ![image.png](2290bdf5-ea53-4b8f-ae39-7f9672fa377e.png)
 
 
