@@ -419,6 +419,57 @@ for j in range(len(u)):
 
 
 
-```python
+**py03_제어문 특강
 
+
+
+```python
+# 응용
+import random as ran
+import matplotlib.pyplot as plt # !pip install tqdm 사용하여 tqdm 패키지 다운로드
+
+li = []
+values = []
+i = 0
+cc = 10000
+choice = int(input("조작할 확률 %를 입력하세요.") or 10) # 퍼센트 조절
+my = int(input("조작할 번호를 입력하세요.") or 3)
+while i < cc:
+    num = ran.randint(1, 6)
+    lucky = ran.randint(1, 100)
+    if choice >= lucky:
+        li.append(my)
+    else:
+        li.append(num)
+    i += 1
+
+if cc == len(li):
+    print(f"{cc} 회 정상 진행 되었습니다.")
+    for n in range(1, 7):
+        print(f"{n}번이 {li.count(n)}번 등장 {li.count(n)/cc * 100}")
+        values.append(li.count(n))
+else:
+    print(f"검증 결과 이상이 있습니다. {cc}회 목표로 동작하였으나, {len(li)}으로 측정되었습니다.")
+
+color = ["skyblue", "orange", "skyblue", "orange", "skyblue", "orange"]
+
+plt.bar(range(1, 7), values, color=color)
+plt.show()
 ```
+
+    조작할 확률 %를 입력하세요. 
+    조작할 번호를 입력하세요. 
+
+
+    10000 회 정상 진행 되었습니다.
+    1번이 1490번 등장 14.899999999999999
+    2번이 1504번 등장 15.040000000000001
+    3번이 2561번 등장 25.61
+    4번이 1474번 등장 14.74
+    5번이 1504번 등장 15.040000000000001
+    6번이 1467번 등장 14.67
+
+
+
+    
+![png](output_55_2.png)
