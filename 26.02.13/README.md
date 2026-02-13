@@ -1,3 +1,148 @@
+## with 문으로 읽기, 쓰기
+
+
+```python
+with open("./로또추천.txt", "r") as f: 
+    print(f.closed)
+    print(f.read())
+    print(f.closed)
+print(f.closed) # 여기서 True 반환. 파일이 닫혔다는 뜻
+```
+
+    False
+    [1, 15, 23, 35, 42, 44]
+    [11, 13, 17, 28, 31, 34]
+    [7, 8, 11, 15, 23, 31]
+    [3, 8, 16, 20, 27, 35]
+    [8, 12, 19, 21, 34, 40]
+    [10, 19, 24, 32, 33, 37]
+    [20, 22, 35, 36, 39, 44]
+    [8, 10, 11, 25, 28, 45]
+    [6, 24, 37, 42, 43, 44]
+    [6, 10, 22, 23, 26, 28]
+    내 로또 번호
+    [1, 2, 3, 4, 5, 6]
+    False
+    True
+
+
+
+```python
+# 함수 스코프
+def my_function():
+    func_var = "함수 안의 변수"
+
+my_function()
+# print(func_var) # 함수 밖에서는 접근 불가
+```
+
+![image.png](a2eca829-1b94-45e4-a6c1-fb0fcdd812fe.png)
+
+
+```python
+with open("./로또추천.txt", "r") as f:
+    data = f.read()
+    print(data)
+```
+
+    [1, 15, 23, 35, 42, 44]
+    [11, 13, 17, 28, 31, 34]
+    [7, 8, 11, 15, 23, 31]
+    [3, 8, 16, 20, 27, 35]
+    [8, 12, 19, 21, 34, 40]
+    [10, 19, 24, 32, 33, 37]
+    [20, 22, 35, 36, 39, 44]
+    [8, 10, 11, 25, 28, 45]
+    [6, 24, 37, 42, 43, 44]
+    [6, 10, 22, 23, 26, 28]
+    내 로또 번호
+    [1, 2, 3, 4, 5, 6]
+
+
+## 프로그램의 입출력
+
+
+```python
+import sys
+args = sys.argv
+for i in args:
+    print(i)
+```
+
+    /home/pmw/venv/lib/python3.12/site-packages/ipykernel_launcher.py
+    -f
+    /home/pmw/.local/share/jupyter/runtime/kernel-fedcdeff-fa9b-47e3-918f-03202f479d05.json
+
+
+
+```python
+!python3 args_test.py 12 34 56
+```
+
+    args_test.py
+    12
+    34
+    56
+
+
+
+```sh
+%%sh
+python args_test.py 12 34 56
+python btc.py
+```
+
+    args_test.py
+    12
+    34
+    56
+    비트코인 가격(달러): $66164
+    비트코인 가격(원):  9593 만 7800 원
+
+
+
+```python
+import sys
+cat <<'end'> sys2.py
+args = sys2.argv[1:]
+for i in args:
+    print(i.upper(), end=' ')
+end
+python3 sys2.py life is too short, you need python
+```
+
+
+```python
+def avg_numbers(*args):
+    result = 0
+    for i in args:
+        result += i
+    return result / len(args)
+        
+avg_numbers(1, 2) # 1.5 출력
+avg_numbers(1, 2, 3, 4, 5) # 3.0 출력
+```
+
+
+
+
+    3.0
+
+
+
+
+```python
+name = input("당신의 이름은?")
+age = input("당신의 나이는?")
+with open('./test_note.txt', 'a') as f:
+    f.write(name + " " + age + "\n")
+```
+
+    당신의 이름은? 박민욱
+    당신의 나이는? 28
+
+
+
 # 심화
 
 ## 클래스
